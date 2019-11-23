@@ -1,0 +1,123 @@
+<hr class="style-two">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-9">
+      <h3 style="text-align: center;"><%=realestate.name%></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-9">
+      <div class="row" style="color: #007bff;">
+        <div class="col">
+          <h5 class="numberWithCommas"><%=realestate.price%>$</h5>
+        </div>
+        <div class="col">
+          <h5 style="text-align: end;"><span class="numberWithCommas"><%=realestate.fullArea%></span>m^2, <%=realestate.neighborhood%></h5>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-9" style="margin-bottom: 15px;">
+      <div class="row slider1row">
+        <div class="col slider1col">
+          <% include ../sliders/slider3.ejs %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-3">
+      <div id="map" style="height: 46%; margin-bottom: 15px;"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-light ">
+        <thead>
+          <tr>
+            <th scope="col" colspan="4" class="bg-primary">Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(realestate.typeOfHouse) { %>
+              </tr>
+                 <td colspan="2">Type of the house:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.typeOfHouse%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.usableArea) { %>
+              </tr>
+                 <td colspan="2">Usable area(m^2):</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.usableArea%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.roomNumber) { %>
+              </tr>
+                 <td colspan="2">Room number:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.roomNumber%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.isFirstHand) { %>
+              </tr>
+                 <td colspan="2">Is this first hand:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.isFirstHand%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.furniture) { %>
+              </tr>
+                 <td colspan="2">Is furniture available:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.furniture%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.numberOfBath) { %>
+              </tr>
+                 <td colspan="2">Number of bathrooms:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.numberOfBath%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.numberOfFloor) { %>
+              </tr>
+                 <td colspan="2">Total number of floors in the house:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.numberOfFloor%></strong></td>
+              <tr>    
+          <% } %>
+          <% if(realestate.whichFloor) { %>
+              </tr>
+                 <td colspan="2">Which floors is this house:</td>
+                 <td colspan="2" align="center" ><strong ><%=realestate.whichFloor%></strong></td>
+              <tr>    
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row"> 
+     <div class="col">
+        <table class="table table-bordered table-light ">
+          <thead>
+            <tr>
+              <th scope="col" colspan="4" class="bg-primary">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              
+              <td colspan="4" style="width: 100%; padding: 0;"><textarea class="form-control" rows="5" id="comment" style="height: 100%;" disabled><%=realestate.description%></textarea><br></td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="border: 3px solid #007bff; border-radius: 25px;">
+      <hr class="style-two">
+      <h1 align="center">Contact Us</h1>
+      <hr class="style-two">
+      <form action="/realestates/<%= realestate.type %>/<%= realestate._id %>" method="GET">
+        <% include ../contactForm.ejs %>  
+      </form>
+       </div>
+  </div>
+  <hr class="style-two">

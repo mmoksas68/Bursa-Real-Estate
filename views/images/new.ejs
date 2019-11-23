@@ -1,0 +1,8 @@
+<% include ../partials/header.ejs %>
+
+<form action="/realestates/<%= realestate.type%>/<%= realestate._id %>/images/" method="POST">
+    <input type="text" name="image[url]" placeholder="url">
+    <button>Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

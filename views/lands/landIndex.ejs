@@ -1,0 +1,106 @@
+<div class="row justify-content-md-center">
+<div class="col" align="right" style="margin: 10px 0 15px 0; display: inline;">
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Open Filter
+      </a>
+</div>
+<div class="col" align="left" style="margin: 10px 0 15px 0; display: inline;">
+      <form action="/realestates/land" method="GET">
+        <button class="btn btn-warning">Clear the filter</button>
+      </form>  
+</div>  
+</div>
+<div class="collapse" id="collapseExample" style="margin-left: 30px">
+    <form action="/realestates/land" method="GET">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="form-group">
+                    <label for="minPrice">Minimum Price $</label>
+                    <input class="form-control" type="number" name="minPrice"  <% if(minPrice){ %>
+                    value="<%=minPrice%>"
+                    <% } else { %> 
+                    placeholder="0"
+                    <% } %>>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="form-group">
+                    <label for="maxPrice">Maximum Price $</label>
+                    <input class="form-control" type="number" name="maxPrice" <% if(maxPrice){ %>
+                    value="<%=maxPrice%>" 
+                    <% } else { %>
+                    placeholder="100000000"
+                    <% } %> >
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="form-group">
+                    <label for="minArea">Minimum Area m^2</label>
+                    <input class="form-control" type="number" name="minArea"  <% if(minArea){ %>
+                    value="<%=minArea%>"
+                    <% } else { %> 
+                    placeholder="0"
+                    <% } %>>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="form-group">
+                    <label for="maxArea">Maximum Area m^2</label>
+                    <input class="form-control" type="number" name="maxArea" <% if(maxArea){ %>
+                    value="<%=maxArea%>" 
+                    <% } else { %>
+                    placeholder="10000000"
+                    <% } %> >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-4 col-xl-3" style="margin: auto;">
+                    <div class="form-group">
+                        <label for="location">Location of lands</label>
+                        <input class="form-control" type="text" name="location" <% if(locations){ %>
+                        value="<%=locations%>" "
+                        <% } else { %>
+                        placeholder="location"
+                        <% } %> >
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="col-12" align="center" style="display: inline;">
+                <button class="btn btn-primary">Search</button> 
+            </div>
+        </div>
+    </form>   
+</div>
+
+<hr class="style-two">
+
+<% if(realestates.length > 0) { %>
+
+    <div class="row">
+        <% realestates.forEach(function(realestate){ %>
+        <div class="col-md-12 col-lg-4 col-xl-3" align="center" style="padding-bottom: 50px;" >
+            <div class="card" style="width: 18rem; margin: auto;">
+              <img class="card-img-top" src="<%= realestate.thumbnail %>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= realestate.name %></h5>
+                <ul class="list-group list-group-flush">
+                    <% if( realestate.price){ %>
+                        <li class="list-group-item">Price: <strong class="numberWithCommas"><%= realestate.price %></strong>$</li>
+                    <% } %>
+                    <% if( realestate.fullArea){ %>
+                        <li class="list-group-item">Area: <strong class="numberWithCommas"><%= realestate.fullArea %></strong> m^2</li>
+                    <% } %>
+                    <% if( realestate.neighborhood){ %>                   
+                        <li class="list-group-item">Location: <strong><%= realestate.neighborhood %></strong></li>
+                    <% } %>
+                </ul>
+                <a href="/realestates/<%=realestate.type%>/<%=realestate._id%>" class="btn btn-primary">Click for more info</a>
+              </div>
+            </div>
+        </div>
+        <% }); %>  
+    </div>
+<% } else { %>
+<h1 align="center" >Couldn't find anything to show. Please change your filter. </h1>
+<% } %>

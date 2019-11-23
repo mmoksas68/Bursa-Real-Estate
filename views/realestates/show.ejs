@@ -1,0 +1,39 @@
+<% include ../partials/header.ejs %>
+
+<% include ../houses/houseShow.ejs %>
+
+<div class="container-of-photos">
+  <img class="photos-of-home img-thumbnail" src="<%=realestate.thumbnail%>">
+  <% realestate.images.forEach(function(image){ %>
+    <img class="photos-of-home img-thumbnail" src="<%=image.url%>"> 
+    <form action="/realestates/<%= realestate.type%>/<%= realestate._id %>/images/<%= image._id%>/?_method=DELETE" method="POST">
+      <button class="btn btn-danger">delete this!</button>  
+    </form>
+  <% }); %>
+  <a class = "btn btn-primary" href = "/realestates/<%= realestate.type%>/<%= realestate._id %>/images/new" >Add Image</a>
+</div>
+
+
+
+<a class = "btn btn-warning" href = "/realestates/<%= realestate.type%>/<%= realestate._id %>/edit" >Edit</a>
+<form class = "inline" action = "/realestates/<%= realestate.type%>/<%= realestate._id %>/?_method=DELETE" method = "POST">
+    <button class = "btn btn-danger">Delete</button>
+</form>-->
+
+
+
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    center: <%=realestate.location%>,
+    zoom: 16
+    });
+    
+    var marker = new google.maps.Marker({
+        position: <%=realestate.location%>,
+        map: map
+    })
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=IzaSyDZs5g-XbnfF0FDDxBhw3PRJqtyNZHaRgo&callback=initMap" async defer></script>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,30 @@
+<% if(realestates.length > 0) { %>
+    
+    <div class="row">
+        <% realestates.forEach(function(realestate){ %>
+        <div class="col-md-12 col-lg-4 col-xl-3" align="center" style="padding-bottom: 50px;" >
+            <div class="card" style="width: 18rem; margin: auto;">
+              <img class="card-img-top" src="<%= realestate.thumbnail %>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= realestate.name %></h5>
+                <ul class="list-group list-group-flush">
+                    <% if( realestate.price){ %>
+                         <li class="list-group-item">Price: <strong class="numberWithCommas"><%= realestate.price %></strong>$</li>
+                    <% } %>
+                    <% if( realestate.fullArea){ %>
+                         <li class="list-group-item">Area: <strong class="numberWithCommas"><%= realestate.fullArea %></strong> m^2</li>
+                    <% } %>
+                    <% if( realestate.neighborhood){ %>
+                         <li class="list-group-item">Location: <strong><%= realestate.neighborhood %></strong></li>
+                    <% } %>
+                </ul>
+                <a href="/realestates/<%=realestate.type%>/<%=realestate._id%>" class="btn btn-primary">Click for more info</a>
+              </div>
+            </div>
+        </div>
+        <% }); %>  
+    </div>
+
+<% } else { %>
+<h1 align="center" >Couldn't find anything to show. Please change your filter. </h1>
+<% } %>

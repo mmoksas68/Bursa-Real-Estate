@@ -1,0 +1,15 @@
+<% include ../partials/header.ejs %>
+<hr class="style-two">
+<% if(realestateType == "house") { %>
+    <% include ../houses/houseIndex.ejs %>
+<% } else if(realestateType == "workplace") { %>
+    <% include ../workplaces/workplaceIndex.ejs %>
+<% } else if(realestateType == "land") { %>
+    <% include ../lands/landIndex.ejs %>
+<% } else if(realestateType == "project") { %>
+    <% include ../projects/projectIndex.ejs %>
+<% } %>
+
+<hr class="style-two">
+
+<% include ../partials/footer.ejs %>

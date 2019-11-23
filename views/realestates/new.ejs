@@ -1,0 +1,47 @@
+<% include ../partials/header.ejs %>
+
+<form action="/realestates" method="POST" align="center">
+    <br>
+    <input type="radio" name="realestate[type]" value="house">House<br>
+    <input type="radio" name="realestate[type]" value="land">Land<br>
+    <input type="radio" name="realestate[type]" value="workplace">Workplace<br>
+    <input type="radio" name="realestate[type]" value="project">Project<br>
+    <input type="text" name="realestate[name]" placeholder="name"><br>
+    <input type="text" name="realestate[thumbnail]" placeholder="thumbnail url"><br>
+    <input type="number" name="realestate[price]" step="any" placeholder="price"><br>
+    <input type="number" name="realestate[fullArea]" step="any" placeholder="full area"><br>
+    <textarea rows="4" name="realestate[description]" placeholder="general description"></textarea><br><br>Anasayfada çıksın mı<br><br>
+    <input type="radio" name="realestate[isFavorite]" value="No">No<br>
+    <input type="radio" name="realestate[isFavorite]" value="Yes">Yes<br>
+    <input type="number" name="realestate[location][lat]" step="any" placeholder="lat"><br>
+    <input type="number" name="realestate[location][lng]" step="any" placeholder="lng"><br>
+    <input type="number" name="realestate[usableArea]" step="any" placeholder="usable area"><br> <hr class="style-two">
+    <input type="text" name="realestate[neighborhood]" placeholder="semt"><br>
+    <input type="number" name="realestate[numberOfFloor]" placeholder="bina toplam kaç kat"><br>
+    <input type="number" name="realestate[whichFloor]" placeholder="bizimki hangi katta"><br>
+    <input type="number" name="realestate[age]" placeholder="binanın yaşı"><br>
+    <input type="number" name="realestate[numberOfBath]" placeholder="banyo sayısı"><br><br>Furniture<br><br>
+    <input type="radio" name="realestate[furniture]" value="No" >No<br>
+    <input type="radio" name="realestate[furniture]" value="Yes">Yes<br><br>Birinci el mi<br><br>
+    <input type="radio" name="realestate[isFirstHand]" value="Yes">Yes<br>
+    <input type="radio" name="realestate[isFirstHand]" value="No">No<br><br>Ev tipi<br><br>
+    <input type="radio" name="realestate[typeOfHouse]" value="Villa">Villa<br>
+    <input type="radio" name="realestate[typeOfHouse]" value="Dublex">Dublex<br>
+    <input type="radio" name="realestate[typeOfHouse]" value="Detached house">detached house<br>
+    <input type="radio" name="realestate[typeOfHouse]" value="Apartment">Apartment<br><br>Oda sayısı<br><br>
+    <input type="radio" name="realestate[roomNumber]" value="1+0" >1+0<br>
+    <input type="radio" name="realestate[roomNumber]" value="1+1">1+1<br>
+    <input type="radio" name="realestate[roomNumber]" value="2+1">2+1<br>
+    <input type="radio" name="realestate[roomNumber]" value="3+1">3+1<br>
+    <input type="radio" name="realestate[roomNumber]" value="4+1">4+1<br>
+    <input type="radio" name="realestate[roomNumber]" value="2+2">2+2<br>
+    <input type="radio" name="realestate[roomNumber]" value="3+2">3+2<br>
+    <input type="radio" name="realestate[roomNumber]" value="4+2">4+2<br>
+    <input type="radio" name="realestate[roomNumber]" value="5+1">5+1<br>
+    <input type="radio" name="realestate[roomNumber]" value="6+">6+<br>
+    
+    
+    <button>Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

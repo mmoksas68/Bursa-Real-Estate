@@ -1,0 +1,30 @@
+<div class="col" style="text-align: center;">
+    <h1>Great Opportunities</h1>  
+    </div>
+</div>
+    
+    <div class="row">
+      <div class="slider3d">
+        <div class="slider3d_wrap" >
+          <% for(var i = 0; i < realestates.length; i++) { %>
+              <div style="background-image: url(<%= realestates[i].thumbnail %>); %>" align="center">
+                <div class="information" style="height: 5vw; background: rgba(0, 123, 255, 0.7); width: 75%; border-radius: 25px;">
+                      <h6> <a href="/realestates/<%=realestates[i].type%>/<%=realestates[i]._id%>" style=" color: white; font-size: 2vw; margin:auto;" ><%= realestates[i].name %></a> </h6> 
+                </div>
+              </div>        
+          <% } %>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-6" align="center">
+        <div class="slider3d_left " ><i style="font-size: 100px;" class="fas fa-chevron-left"></i></div>  
+      </div>
+      <div class="col-6" align="center">
+        <div class="slider3d_right "><i style="font-size: 100px;" class="fas fa-chevron-right"></i></div>  
+      </div>
+    </div>
+    
+    
