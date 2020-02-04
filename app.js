@@ -17,7 +17,6 @@ mongoose.connect("mongodb://mmoksas:emincik123@ds123753.mlab.com:23753/greenburs
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
-
 app.use(function(req, res, next) {
     res.locals.filter = req.query.searchResult;
     res.locals.locations = req.query.location;
@@ -76,6 +75,6 @@ function clean(obj) {
     }
 }
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(process.env.PORT||3000, process.env.IP, function() {
     console.log("working...");
 });
